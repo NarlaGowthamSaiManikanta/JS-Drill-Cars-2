@@ -1,7 +1,15 @@
 module.exports = function lastCarInInventory(inventory) {
-    lastCar = inventory.reduce((accumulator, car) => {
-        return car;
-    });
+    if (Array.isArray(inventory)) {
+        if (inventory.length) {
+            lastCar = inventory.reduce((accumulator, car) => {
+                return car;
+            });
 
-    return `Last car is a ${lastCar.car_make} ${lastCar.car_model}`;
+            return `Last car is a ${lastCar.car_make} ${lastCar.car_model}`;
+        } else {
+            return 'The Inventory is Empty';
+        }
+    } else {
+        console.log('First Argument should be an Array.');
+    }
 }

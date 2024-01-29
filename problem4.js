@@ -1,7 +1,11 @@
 module.exports = function extractCarYears(inventory) {
-    let carYears = inventory.map((car) => {
-        return car.car_year;
-    });
+    if (Array.isArray(inventory)) {
+        let carYears = inventory.map((car) => {
+            return car.car_year;
+        });
 
-    return carYears;
+        return carYears;
+    } else {
+        console.log('First Argument should be an Array.');
+    }
 }
